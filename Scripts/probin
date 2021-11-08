@@ -1,0 +1,13 @@
+
+&tagging
+  
+   emerr = 0.01d0, 0.01d0, 1.9d0
+
+   emgrad = 0.1d0, 0.1d0, 0.1d0
+
+   max_emerr_lev = 10
+
+   max_emgrad_lev = 10
+
+/
+
