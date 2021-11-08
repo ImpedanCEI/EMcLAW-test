@@ -1,2 +1,2 @@
-# EMcLAW
-Cube resonator experiment to tudy the FVTD EM solver capabilities
+## EMcLAW Box resonator
+Box resonator experiment to study the FVTD EM solver capabilities
