@@ -1,0 +1,69 @@
+# ------------------  INPUTS TO MAIN PROGRAM  -------------------
+max_step = 2000
+stop_time = 10
+
+em.is_D_wave = 0      # 1 for D-wave and 0 for B-wave (2D)
+
+# PROBLEM SIZE & GEOMETRY
+geometry.is_periodic =  0 0 0
+lo_bc = 2 2 2         # 2 or 1 for absorbing boundary conditions
+hi_bc = 2 2 2
+metallic_walls = 0    # 1 if you want metallic walls
+# select the places with metallic walls (if metallic_walls = 1)
+# the field parallel to the wall must be 1 and the others -1
+lo_bcDx = 1 -1 -1
+hi_bcDx = 1 -1 -1
+lo_bcDy = -1 1 -1
+hi_bcDy = -1 1 -1
+lo_bcDz = -1 -1 1
+hi_bcDz = -1 -1 1
+# the field parallel to the wall must be -1 and the others 1
+lo_bcBx = 1 1 1
+hi_bcBx = 1 1 1
+lo_bcBy = 1 1 1
+hi_bcBy = 1 1 1
+lo_bcBz = 1 1 1
+hi_bcBz = 1 1 1
+
+
+geometry.coord_sys   =  0                    # 0 => cart
+geometry.prob_lo     =  -1  -1  -1  # [m]
+geometry.prob_hi     =  1  1  1     # [m]
+amr.n_cell           =  60 60 60             # number of cells per dimension
+
+# TIME STEP CONTROL
+em.cfl            = 0.5     # cfl number for hyperbolic system
+em.do_reflux      = 0       # reflux
+
+# VERBOSITY
+em.v              = 1       # verbosity in EM
+amr.v             = 1       # verbosity in Amr
+#amr.grid_log         = grdlog  # name of grid logging file
+
+# REFINEMENT / REGRIDDING
+amr.max_level       = 0       # maximum level number allowed
+amr.ref_ratio       = 2 2 2 2 # refinement ratio
+amr.regrid_int      = 4       # how often to regrid
+amr.grid_eff        = 0.7     # what constitutes an efficient grid
+amr.n_error_buf     = 4 4 4 4 4 4    # number of buffer cells in error est
+amr.blocking_factor = 2       # block factor in grid generation (2**n) - mcd of n_cell
+#amr.max_grid_size   = 40
+amr.subcycling_mode = "Auto"
+
+# CHECKPOINT FILES
+amr.checkpoint_files_output = 0     # 0 will disable checkpoint files
+amr.check_file              = chk   # root name of checkpoint file
+amr.check_int               = 10    # number of timesteps between checkpoints
+
+# PLOTFILES
+amr.plot_files_output = 1      # 0 will disable plot files
+amr.plot_file         = plt    # root name of plot file
+amr.plot_int          = 100    # number of timesteps between plot files
+
+# PROBIN FILENAME
+amr.probin_file = probin
+
+# TRACER PARTICLES
+em.do_tracers = 0
+
+

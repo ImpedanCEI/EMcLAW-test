@@ -37,15 +37,15 @@ double precision :: x,y,z,r2
 
 do    k = lo(3)-nGhost+1, hi(3)+nGhost-1
  z = prob_lo(3) + (dble(k)+0.5d0) * dx(3)
-  if((z.le.0.9).and.(z.ge.0.7)) then
+  if((z.le.1.0).and.(z.ge.0.5)) then
 
   do    j = lo(2)-nGhost+1, hi(2)+nGhost-1
    y = prob_lo(2) + (dble(j)+0.5d0) * dx(2)
-    if((y.le.0.9).and.(y.ge.0.7)) then
+    if((y.le.1.0).and.(y.ge.0.5)) then
 
      do i = lo(1)-nGhost+1, hi(1)+nGhost-1
       x = prob_lo(1) + (dble(i)+0.5d0) * dx(1)
-       if((x.le.0.9).and.(x.ge.0.7)) then
+       if((x.le.1.0).and.(x.ge.0.5)) then
 
 !x-axis
          ulx(i+1,j,k,1) = uin(i+1,j,k,1)
@@ -137,19 +137,22 @@ double precision :: x,y,z,r2
 
 do    k = lo(3), hi(3)
  z = prob_lo(3) + (dble(k)+0.5d0) * dx(3)
-  if((z.le.0.9).and.(z.ge.0.7)) then
+  if((z.le.1.0).and.(z.ge.0.5)) then
 
   do    j = lo(2), hi(2)
    y = prob_lo(2) + (dble(j)+0.5d0) * dx(2)
-    if((y.le.0.9).and.(y.ge.0.7)) then
+    if((y.le.1.0).and.(y.ge.0.5)) then
 
      do i = lo(1), hi(1)
       x = prob_lo(1) + (dble(i)+0.5d0) * dx(1)
-       if((x.le.0.9).and.(x.ge.0.7)) then
+       if((x.le.1.0).and.(x.ge.0.5)) then
 
                uout(i,j,k,0) = 0.0d0
                uout(i,j,k,1) = 0.0d0
                uout(i,j,k,2) = 0.0d0
+               uout(i,j,k,3) = 0.0d0
+               uout(i,j,k,4) = 0.0d0
+               uout(i,j,k,5) = 0.0d0
 
        endif
      end do

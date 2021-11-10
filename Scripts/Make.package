@@ -1,0 +1,10 @@
+
+CEXE_sources += init_src_pol.cpp
+
+CEXE_headers += Defines.H
+
+F90EXE_sources += ep_mu_$(DIM)d.F90
+F90EXE_sources += metallic_material_$(DIM)d.F90
+F90EXE_sources += force_tagging_$(DIM)d.F90
+
+f90EXE_sources += Prob.f90
